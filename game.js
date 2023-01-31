@@ -27,10 +27,24 @@ function startGame(){
   game.font = elementsSize + 'px arial'
   game.textAlign = 'end'
 
-  console.log(elementsSize)
+  console.log(maps);
 
-  for (let i = 1; i <= 10; i++) {
-    game.fillText(emojis['X'], elementsSize*i, elementsSize)
+  //cleans first map (map[0]) and splits by \n
+  const mapRows = maps[0].trim().split('\n')
+
+  //cleans every row of strings then converts strings to array with map()  
+  const mapRowCols = mapRows.map(function(row){
+    return row.trim().split('')
+  })
+
+  //console.log(mapRowCols);
+
+  for (let row = 1; row <= 10; row++) {
+    for (let col = 1; col <= 10; col++) {
+      //renders emoji based on position of the mapRowCols array
+      game.fillText(emojis[mapRowCols[row-1] [col-1]], elementsSize*col, elementsSize*row)
+    }
+   
   }
 }
 
