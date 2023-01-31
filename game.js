@@ -39,12 +39,18 @@ function startGame(){
 
   //console.log(mapRowCols);
 
-  for (let row = 1; row <= 10; row++) {
-    for (let col = 1; col <= 10; col++) {
-      //renders emoji based on position of the mapRowCols array
-      game.fillText(emojis[mapRowCols[row-1] [col-1]], elementsSize*col, elementsSize*row)
-    }
-   
-  }
+  mapRowCols.forEach((row, rowIndex)=>{
+
+    row.forEach((col, colIndex) =>{
+  
+      const emoji = emojis[col]
+      const posX = elementsSize*(colIndex+1)
+      const posY = elementsSize*(rowIndex+1)
+
+      //renders emoji
+      game.fillText(emoji, posX, posY)
+    })
+  })
+
 }
 
