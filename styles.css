@@ -60,3 +60,16 @@ p {
   button { margin-top: 25px; }
   #up, #down { margin-left: 100%; margin-right: 100%; }
 }
+
+.center{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.msgContainer{
+  width: 100%;
+}
+
+.lives{
+  font-size: 2em;
+}
