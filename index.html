@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <title>Skull Game</title>
 </head>
+
 <body>
   <div class="game-container">
     <canvas id="game"></canvas>
@@ -16,18 +18,24 @@
       <button id="right">Right</button>
       <button id="down">Down</button>
     </div>
-    
-    <div class="msgContainer center">
-      <h2 id="messages"></h2>
-      <p class="lives">Lives: <span id="lives" ></span></p>
-      <p class="lives">Your time: <span id="time"></span></p>
-      <p class="lives">Record: <span id="record"></span></p>
+
+    <div class="infoContainer">
+      <div class="msgContainer">
+        <h2 id="messages"></h2>
+        <p class="lives">Lives: <span id="lives"></span></p>
+        <p class="lives">Your time: <span id="time"></span></p>
+        <p class="lives">Record: <span id="record"></span></p>
+      </div>
+      <div class="resetContainer">
+        <button class="btnReset" id="restart">Start</button>
+      </div>
     </div>
 
   </div>
 
 
-<script src="maps.js"></script>
-<script src="game.js"></script>
+  <script src="maps.js"></script>
+  <script src="game.js"></script>
 </body>
+
 </html>

@@ -3,6 +3,7 @@ const message = document.querySelector('#messages')
 const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const spanRecord = document.querySelector('#record')
+const restartBtn = document.querySelector('#restart')
 
 const btnUp = document.querySelector("#up")
 const btnLeft = document.querySelector("#left")
@@ -49,9 +50,9 @@ window.addEventListener('resize', setCanvasSize)
 
 function setCanvasSize(){
  if(window.innerHeight > window.innerWidth){
-    canvasSize = window.innerWidth *.8
+    canvasSize = window.innerWidth *.7
   } else{ 
-    canvasSize = window.innerHeight *.8
+    canvasSize = window.innerHeight *.7
   }
 
   canvas.setAttribute('width', canvasSize)
@@ -72,7 +73,7 @@ function setCanvasSize(){
 
 function gameWin(){
   console.log("You Won")
-  cleanCanvas()
+  //cleanCanvas()
   clearInterval(timeInterval)
   const FinalTime = spanTime.textContent
   message.innerHTML= `You won! your time was: ${FinalTime}`
@@ -83,13 +84,13 @@ function gameWin(){
   if(recordTime){
     if (recordTime >= playerTime) {
       localStorage.setItem('record_time', playerTime)
-      message.innerHTML = "New Record!!"
+      message.innerHTML = "New Record 🤩 Play again?"
     } else {
-      message.innerHTML= "No good enough =("
+      message.innerHTML= "You didn't beat the record 😓 Try again!"
     }
   } else{
     localStorage.setItem('record_time', playerTime)
-    message.innerHTML= "New game and new record"
+    message.innerHTML= "You made a decent time 🧐 play again to beat it"
   }
 
   console.log({recordTime, playerTime});
@@ -103,11 +104,20 @@ function levelWin(){
 
 function levelFail(){
   if(lives>0){
+    if (lives==1) {
+      message.innerHTML= "It's your last live 😐 Play wisely"
+    }
+      playerPosition.x = undefined
+      playerPosition.y = undefined
+      startGame()
+    
+  } else if(lives==0){
+    clearInterval(timeInterval)
+    spanLives.innerHTML = ""
+    message.innerHTML= "You lost all your lives 😖 Try again?"
+    //startOver()
     playerPosition.x = undefined
-    playerPosition.y = undefined
-    startGame()
-  } else{
-    startOver()
+      playerPosition.y = undefined
   }
 }
 
@@ -279,3 +289,7 @@ function moveDown(){
   }
 }
 
+
+restartBtn.addEventListener("click", function(){
+  window.location.reload()
+})

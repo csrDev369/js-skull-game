@@ -1,5 +1,5 @@
 body {
-  background-color: indigo;
+  background-color: #1c2340;
   color: #fff;  
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
@@ -27,16 +27,17 @@ canvas {
   flex-wrap: wrap;
   margin: 0 auto;
   width: 100%;
+  margin-top: 3%;
 }
 
 button {
-  background-color: #fdef05;
-  border-radius: 8px;
-  border-color: #ff6600;
-  font-family: inherit;
-  margin: 0;
-  padding: 5px 20px;
-  width: 100px;
+background-color: #fdef05;
+    border-radius: 8px;
+    border-color: #ff6600;
+    font-family: inherit;
+    margin: 0;
+    padding: 10px 20px;
+    width: 100px;
 }
 button:not(:last-child) {
   margin-right: 10px;
@@ -72,4 +73,33 @@ p {
 
 .lives{
   font-size: 2em;
+}
+
+.infoContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 10%;
+}
+
+.btnReset{
+  width: 100px;
+  height: 100px;
+  color: #fdef05;
+  font-weight: bold;
+  border-radius: 50%;
+  background: #383838;
+  font-size: 20px;
+  border: none;
+}
+
+.btnReset:hover{
+  background-color: #ffb900;
+  color: #1c2340;
+}
+
+#time{
+  color: #fdef05;
 }
