@@ -2,6 +2,7 @@ body {
   background-color: #1c2340;
   color: #fff;  
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
@@ -13,12 +14,14 @@ body {
   flex-wrap: wrap;
   height: 100vh;
   width: 100vw;
+  align-content: space-between;
 }
 
 canvas {
   border: 4px solid #ff6600;
   border-radius: 8px;
   background-color: #feff9d;
+  margin-top: 2%;
 }
 
 .btns {
@@ -27,28 +30,28 @@ canvas {
   flex-wrap: wrap;
   margin: 0 auto;
   width: 100%;
-  margin-top: 3%;
+  margin-top: 1%;
 }
 
 button {
-background-color: #fdef05;
+background-color: #ff6600;
     border-radius: 8px;
-    border-color: #ff6600;
     font-family: inherit;
     margin: 0;
     padding: 10px 20px;
     width: 100px;
+    border: none;
+    color: #0a0f20;
+    font-weight: bold;
 }
 button:not(:last-child) {
   margin-right: 10px;
 }
 
 .messages {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 460px;
+  text-align: center;
+  color:#ff6600;
+  margin-bottom: 2%;
 }
 
 p {
@@ -72,25 +75,48 @@ p {
 }
 
 .lives{
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+.msgWrap{
+background: #0a0f20;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
 }
 
 .infoContainer{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 80%;
   align-items: center;
-  justify-content: space-between;
-  padding: 1% 10%;
+  margin: 0 auto;
 }
+
+@media (max-width: 576px){  
+.msgWrap{
+    padding: 5%;
+}
+.messages {
+  margin-bottom: 5%;
+}
+.infoContainer{
+  width: 100%;
+}
+
+}
+
+
+
 
 .btnReset{
   width: 100px;
   height: 100px;
-  color: #fdef05;
+  color: #0a0f20;
   font-weight: bold;
   border-radius: 50%;
-  background: #383838;
+  background: #ff6600;
   font-size: 20px;
   border: none;
 }
@@ -102,4 +128,8 @@ p {
 
 #time{
   color: #fdef05;
+}
+
+#record{
+  color: #ff6600;
 }

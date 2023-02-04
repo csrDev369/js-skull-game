@@ -50,9 +50,9 @@ window.addEventListener('resize', setCanvasSize)
 
 function setCanvasSize(){
  if(window.innerHeight > window.innerWidth){
-    canvasSize = window.innerWidth *.7
+    canvasSize = window.innerWidth *.6
   } else{ 
-    canvasSize = window.innerHeight *.7
+    canvasSize = window.innerHeight *.6
   }
 
   canvas.setAttribute('width', canvasSize)
@@ -86,11 +86,11 @@ function gameWin(){
       localStorage.setItem('record_time', playerTime)
       message.innerHTML = "New Record 🤩 Play again?"
     } else {
-      message.innerHTML= "You didn't beat the record 😓 Try again!"
+      message.innerHTML= "You didn't beat the record 🤔 Try again!"
     }
   } else{
     localStorage.setItem('record_time', playerTime)
-    message.innerHTML= "You made a decent time 🧐 play again to beat it"
+    message.innerHTML= "You made a decent time 🧐 Play again to beat it"
   }
 
   console.log({recordTime, playerTime});
@@ -105,7 +105,7 @@ function levelWin(){
 function levelFail(){
   if(lives>0){
     if (lives==1) {
-      message.innerHTML= "It's your last live 😐 Play wisely"
+      message.innerHTML= "It's your last live 😬 Play wisely"
     }
       playerPosition.x = undefined
       playerPosition.y = undefined
