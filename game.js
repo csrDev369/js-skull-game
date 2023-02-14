@@ -1,9 +1,12 @@
 const canvas = document.querySelector('#game')
+const container = document.querySelector('.game-container')
 const message = document.querySelector('#messages')
 const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const spanRecord = document.querySelector('#record')
+const startBtn = document.querySelector('#start')
 const restartBtn = document.querySelector('#restart')
+const overlay = document.querySelector('.overlay')
 
 const btnUp = document.querySelector("#up")
 const btnLeft = document.querySelector("#left")
@@ -14,6 +17,8 @@ btnUp.addEventListener("click", moveUp)
 btnLeft.addEventListener("click", moveLeft)
 btnRight.addEventListener("click", moveRight)
 btnDown.addEventListener("click", moveDown)
+
+startBtn.addEventListener("click", start)
 
 const game = canvas.getContext('2d')
 
@@ -42,7 +47,13 @@ let level = 0
 let lives = 3
 let timeStart
 let timeInterval
+let dificultyBg = ['normal', 'hard', 'final']
 
+
+function start(){
+  overlay.classList.add("hide")
+  startGame()
+}
 
 //set canvas size on load/resize
 window.addEventListener('load', setCanvasSize)
@@ -68,7 +79,7 @@ function setCanvasSize(){
   playerPosition.x = undefined
   playerPosition.y = undefined
 
-  startGame()
+  //startGame()
 }
 
 function gameWin(){
@@ -102,6 +113,7 @@ function levelWin(){
   startGame()
 }
 
+
 function levelFail(){
   if(lives>0){
     if (lives==1) {
@@ -116,8 +128,9 @@ function levelFail(){
     spanLives.innerHTML = ""
     message.innerHTML= "You lost all your lives 😖 Try again?"
     //startOver()
+    startGame()
     playerPosition.x = undefined
-      playerPosition.y = undefined
+    playerPosition.y = undefined
   }
 }
 
@@ -161,7 +174,10 @@ function startGame(){
 
   game.font = elementsSize*0.8 + 'px arial'
   game.textAlign = 'end'
-  
+
+  bgColor = dificultyBg.length - lives
+  game.canvas.className = dificultyBg[bgColor]
+
   const map = maps[level]
   //console.log(map);
 
@@ -177,8 +193,6 @@ function startGame(){
   }
 
   showLives()
-
-
 
   //cleans first map (map[0]) and splits by \n
   const mapRows = map.trim().split('\n')
@@ -203,6 +217,15 @@ function startGame(){
 
       //renders emoji
       game.fillText(emoji, posX, posY)
+      
+      //final screen
+      if (lives==0) {
+        game.fillText('🔥', posX, posY)
+        playerPosition.x = -100
+        playerPosition.y = -100
+        container.classList.add('finalMsg')
+        return
+      }
 
       if(col == 'O'){
         if(!playerPosition.x && !playerPosition.y){
@@ -292,4 +315,5 @@ function moveDown(){
 
 restartBtn.addEventListener("click", function(){
   window.location.reload()
+  start()
 })
