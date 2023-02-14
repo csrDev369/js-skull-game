@@ -61,9 +61,9 @@ window.addEventListener('resize', setCanvasSize)
 
 function setCanvasSize(){
  if(window.innerHeight > window.innerWidth){
-    canvasSize = window.innerWidth *.6
+    canvasSize = window.innerWidth *.8
   } else{ 
-    canvasSize = window.innerHeight *.6
+    canvasSize = window.innerHeight *.8
   }
 
   canvas.setAttribute('width', canvasSize)

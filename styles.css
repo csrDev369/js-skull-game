@@ -76,53 +76,6 @@ p {
   width: 100%;
 }
 
-@media (max-width: 440px) {
-  button { margin-top: 25px; }
-  #up, #down { margin-left: 100%; margin-right: 100%; }
-}
-
-.center{
-  text-align: center;
-  margin: 0 auto;
-}
-
-.msgContainer{
-  width: 100%;
-}
-
-.lives{
-  font-size: 1.5em;
-}
-
-.msgWrap{
-background: #0a0f20;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-}
-
-.infoContainer{
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  align-items: center;
-  margin: 0 auto;
-}
-
-@media (max-width: 576px){  
-.msgWrap{
-    padding: 5%;
-}
-.messages {
-  margin-bottom: 5%;
-}
-.infoContainer{
-  width: 100%;
-}
-
-}
-
 .hide{
   display: none !important;
 }
@@ -174,3 +127,60 @@ background: #0a0f20;
   font-size: 1.5em;
   width: 80%;
 }
+
+
+.center{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.msgContainer{
+  width: 100%;
+}
+
+.lives{
+  font-size: 1.5em;
+}
+
+.msgWrap{
+background: #0a0f20;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.infoContainer{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px){  
+  button { margin-top: 25px; }
+  #up, #down { margin-left: 100%; margin-right: 100%; }
+
+.msgWrap{
+    padding: 5%;
+    margin-bottom: 35px;
+}
+.messages {
+  margin-bottom: 5%;
+}
+.infoContainer{
+  width: 100%;
+}
+.lives{
+  font-size: 1.2em;
+}
+
+.btnReset{
+  font-size: 16px;
+  height: 85px;
+  width: 85px;
+}
+
+}
+
